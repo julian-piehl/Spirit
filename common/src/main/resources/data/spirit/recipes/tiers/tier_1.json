@@ -7,6 +7,7 @@
   "spawnCount": 3,
   "spawnRange": 5,
   "nearbyRange": 16,
+  "soulLimit": 3,
   "redstoneControlled": false,
   "ignoreSpawnConditions": false,
   "blacklist": []

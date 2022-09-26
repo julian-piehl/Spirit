@@ -93,7 +93,7 @@ public class SoulCageSpawner {
                         spawned.moveTo(x, y, z, spawned.getYRot(), spawned.getXRot());
 
                         int l = level.getEntitiesOfClass(spawned.getClass(), new AABB(blockPos).inflate(tier.spawnRange())).size();
-                        if (l >= tier.spawnCount()) {
+                        if (l >= tier.soulLimit()) {
                             this.delay(tier);
                             return;
                         }

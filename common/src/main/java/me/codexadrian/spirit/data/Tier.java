@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
 public record Tier(ResourceLocation id, String displayName, int requiredSouls, int minSpawnDelay, int maxSpawnDelay,
-                   int spawnCount, int spawnRange, int nearbyRange,
+                   int spawnCount, int spawnRange, int nearbyRange, int soulLimit,
                    boolean redstoneControlled, boolean ignoreSpawnConditions,
                    Set<String> blacklist) implements SyncedData {
 
@@ -26,6 +26,7 @@ public record Tier(ResourceLocation id, String displayName, int requiredSouls, i
                 Codec.INT.fieldOf("spawnCount").forGetter(Tier::spawnCount),
                 Codec.INT.fieldOf("spawnRange").forGetter(Tier::spawnRange),
                 Codec.INT.fieldOf("nearbyRange").forGetter(Tier::nearbyRange),
+                Codec.INT.fieldOf("soulLimit").orElse(6).forGetter(Tier::soulLimit),
                 Codec.BOOL.fieldOf("redstoneControlled").orElse(false).forGetter(Tier::redstoneControlled),
                 Codec.BOOL.fieldOf("ignoreSpawnConditions").orElse(false).forGetter(Tier::ignoreSpawnConditions),
                 createSetCodec(Codec.STRING).orElse(new HashSet<>()).fieldOf("blacklist").forGetter(Tier::blacklist)
